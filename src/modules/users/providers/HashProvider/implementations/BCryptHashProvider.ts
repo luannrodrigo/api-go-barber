@@ -6,7 +6,7 @@ class BCryptHashProvider implements IHashProvider {
     return hash(payload, 8);
   }
 
-  public compare(payload: string, hashed: string): Promise<boolean> {
+  public compareHash(payload: string, hashed: string): Promise<boolean> {
     return compare(payload, hashed);
   }
 }
