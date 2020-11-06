@@ -68,7 +68,7 @@ describe('UpdateUserAvatarService', () => {
       user_id: user.id,
       name: 'John Doe',
       email: 'john@doe.com',
-      old_Password: '123456',
+      old_password: '123456',
       password: '123123',
     });
 
@@ -104,7 +104,19 @@ describe('UpdateUserAvatarService', () => {
         user_id: user.id,
         name: 'John Doe',
         email: 'john@doe.com',
-        old_Password: 'wrong_old_password',
+        old_password: 'wrong_old_password',
+        password: '123123',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
+  it('should be able to show the profile from non-existing user', async () => {
+    await expect(
+      updateProfileService.execute({
+        user_id: 'non-existing-user',
+        name: 'John Doe',
+        email: 'john@doe.com',
+        old_password: 'wrong_old_password',
         password: '123123',
       }),
     ).rejects.toBeInstanceOf(AppError);
