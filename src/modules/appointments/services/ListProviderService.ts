@@ -14,7 +14,7 @@ class ListProvidersService {
     private usersRepository: IUsersRepository,
   ) {}
 
-  public async execute({ user_id }: IRequest): Promise<User> {
+  public async execute({ user_id }: IRequest): Promise<User[]> {
     const users = await this.usersRepository.findAllProviders({
       execept_user_id: user_id,
     });
