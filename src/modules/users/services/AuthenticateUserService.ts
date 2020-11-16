@@ -9,7 +9,7 @@ import User from '@modules/users/infra/typeorm/entities/User';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import IHashProvider from '@modules/users/providers/HashProvider/models/IHashProvider';
 
-interface IResquestDTO {
+interface IRequestDTO {
   email: string;
   password: string;
 }
@@ -31,7 +31,7 @@ class AuthenticateUserService {
   public async execute({
     email,
     password,
-  }: IResquestDTO): Promise<IResponseDTO> {
+  }: IRequestDTO): Promise<IResponseDTO> {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
