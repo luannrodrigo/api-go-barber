@@ -2,6 +2,8 @@ yarn.lock
 yarn-error.log
 node_modules
 .vscode
+.env
+ormconfig.json
 
 tmp/*
 !/tmp/.gitkeep
