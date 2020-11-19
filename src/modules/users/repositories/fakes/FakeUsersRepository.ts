@@ -9,12 +9,12 @@ class FakeUsersRepository implements IUsersRepository {
   private users: User[] = [];
 
   public async findAllProviders({
-    execept_user_id,
+    except_user_id,
   }: IFindAllProvidersDTO): Promise<User[]> {
     let { users } = this;
 
-    if (execept_user_id) {
-      users = this.users.filter(user => user.id !== execept_user_id);
+    if (except_user_id) {
+      users = this.users.filter(user => user.id !== except_user_id);
     }
 
     return users;

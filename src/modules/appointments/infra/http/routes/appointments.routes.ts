@@ -2,8 +2,8 @@ import { Router } from 'express';
 import { celebrate, Segments, Joi } from 'celebrate';
 
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
-import AppointmentsController from '@modules/appointments/infra/controllers/AppointmentsController';
-import ProviderAppointmentsController from '@modules/appointments/infra/controllers/ProviderAppointmentsController';
+import AppointmentsController from '@modules/appointments/infra/http/controllers/AppointmentsController';
+import ProviderAppointmentsController from '@modules/appointments/infra/http/controllers/ProviderAppointmentsController';
 
 const appointmentsRouter = Router();
 const appointmentsController = new AppointmentsController();
